@@ -1,0 +1,152 @@
+/* (A) WHOLE PAGE */
+:root {
+  --bg-color-a: #f2f2f2; /* body */
+  --bg-color-b: #fff; /* sections */
+  --bg-color-c: #f7f7f7; /* item rows */
+  --bd-color: #e2e2e2; /* section/item/row border */
+  --t-color-a: #e33636; /* text accent */
+  --t-color-b: #474747; /* "muted" text labels & info */
+  --b-color-t: #fff; /* button text */
+  --b-color-b: #e33636; /* button background */
+}
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+body {
+  max-width: 620px;
+  padding: 15px;
+  margin: 0 auto;
+  background: var(--bg-color-a);
+}
+
+/* (B) COMMON SHARED */
+.hide {
+  display: none !important;
+}
+.section {
+  padding: 20px;
+  border: 1px solid var(--bd-color);
+  background: var(--bg-color-b);
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+.bRow {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid var(--bd-color);
+  background: var(--bg-color-c);
+}
+.ico {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* (C) BILLS LIST */
+#blAdd {
+  text-align: center;
+  font-size: 24px;
+  color: var(--t-color-a);
+  border: 2px dashed var(--t-color-a);
+  padding: 10px;
+  cursor: pointer;
+}
+.blInfo {
+  flex-grow: 1;
+  font-size: 14px;
+  color: var(--t-color-b);
+}
+.blBtn {
+  color: var(--t-color-a);
+  padding: 0 8px;
+}
+
+/* (D) BILL FORM */
+#bfWrap h2 {
+  margin: 0;
+}
+#bfWrap h4 {
+  color: var(--t-color-a);
+  margin: 20px 0 10px 0;
+}
+#bfWrap label,
+#bfWrap textarea,
+#bfWrap input[type='text'],
+#bfWrap input[type='date'],
+#bfWrap input[type='number'] {
+  display: block;
+  width: 100%;
+  resize: none;
+}
+#bfWrap label {
+  color: var(--t-color-b);
+  font-weight: 700;
+  padding: 10px 0;
+}
+#bfWrap textarea {
+  height: 80px;
+}
+#bfWrap textarea,
+#bfWrap input[type='text'],
+#bfWrap input[type='date'],
+#bfWrap input[type='number'] {
+  padding: 10px;
+  border: 1px solid var(--bd-color);
+}
+#bfWrap input[type='button'],
+#bfWrap input[type='submit'] {
+  border: 0;
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-weight: 700;
+  color: var(--b-color-t);
+  background: var(--b-color-b);
+  cursor: pointer;
+}
+
+/* (E) ITEM/TOTAL SHARED */
+.bDel {
+  padding: 0 20px 0 10px;
+}
+.bfInfo {
+  flex-grow: 1;
+}
+.bfiName,
+.bftTitle {
+  font-weight: 700;
+}
+#bfiForm,
+#bftForm {
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid var(--bd-color);
+  background: var(--bg-color-c);
+}
+#bfiForm *,
+#bftForm * {
+  margin: 0 !important;
+}
+
+/* (F) BILL FORM ADD ITEM */
+#bfiForm {
+  display: grid;
+  grid-template-areas: 'a a b b' 'c d d e';
+  grid-gap: 5px;
+}
+#bfiName {
+  grid-area: a;
+}
+#bfiDesc {
+  grid-area: b;
+}
+#bfiQty {
+  grid-area: c;
+}
+#bfiEach {
+  grid-area: d;
+}
+#bfiAdd {
+  grid-area: e;
+}

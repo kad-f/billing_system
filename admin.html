@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demo Billing Admin</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="admin.css" />
+    <script src="admin.js"></script>
+  </head>
+
+  <body>
+    <!-- (A) BILLS LIST -->
+    <div id="blWrap" class="section">
+      <div id="blAdd" onclick="bill.toggle(0)">&#10010;</div>
+      <div id="blList"></div>
+    </div>
+
+    <!-- (B) BILL FORM -->
+    <div id="bfWrap" class="hide">
+      <!-- (B1) TITLE -->
+      <h2 id="bfTitle">ADD BILL</h2>
+
+      <!-- (B2) BILLING INFO -->
+      <h4>BILLING INFORMATION</h4>
+      <form id="bfForm" class="section">
+        <input type="hidden" id="bfID" />
+        <label>Bill To</label>
+        <textarea id="bfBill" required></textarea>
+        <label>Ship To</label>
+        <textarea id="bfShip" required></textarea>
+        <label>Notes (if any)</label>
+        <textarea id="bfNotes"></textarea>
+        <label>DOP</label>
+        <input type="date" id="bfDOP" required />
+        <label>Due Date</label>
+        <input type="date" id="bfDue" required />
+      </form>
+
+      <!-- (B2) ITEMS -->
+      <h4>ITEMS</h4>
+      <div id="bfiWrap" class="section">
+        <div id="bfiList"></div>
+        <form id="bfiForm" onsubmit="return bill.aRow(1)">
+          <input type="text" id="bfiName" placeholder="Name" required />
+          <input type="text" id="bfiDesc" placeholder="Desc" />
+          <input
+            type="number"
+            id="bfiQty"
+            placeholder="Qty"
+            min="0"
+            step="0.1"
+            required
+          />
+          <input
+            type="number"
+            id="bfiEach"
+            placeholder="Price Each"
+            min="0"
+            step="0.01"
+            required
+          />
+          <input type="submit" id="bfiAdd" value="Add" />
+        </form>
+      </div>
+
+      <!-- (B3) TOTALS -->
+      <h4>TOTALS</h4>
+      <div id="bftWrap" class="section">
+        <div class="bRow flex">
+          <div class="bfInfo bftTitle">Sub Total</div>
+          <div class="bftAmt">$<span id="bftSub">0.00</span></div>
+        </div>
+        <div id="bftList"></div>
+        <div class="bRow flex">
+          <div class="bfInfo bftTitle">Grand Total</div>
+          <div class="bftAmt">$<span id="bftGrand">0.00</span></div>
+        </div>
+        <form id="bftForm" class="flex" onsubmit="return bill.aRow(2)">
+          <input type="text" id="bftName" placeholder="Name" required />
+          <input
+            type="number"
+            id="bftAmt"
+            placeholder="Amount (negative for discounts)"
+            step="0.01"
+            required
+          />
+          <input type="submit" id="bfiAdd" value="Add" />
+        </form>
+      </div>
+
+      <input type="button" value="Back" onclick="bill.toggle(false)" />
+      <input type="button" value="Save" onclick="bill.save()" />
+    </div>
+  </body>
+</html>
